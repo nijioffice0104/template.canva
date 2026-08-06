@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>誕生日占い TOP5｜Canvaテンプレの使い方（手動編集版）</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: {
+              50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4',
+              300: '#d6d3d1', 400: '#a8a29e', 500: '#78716c',
+              600: '#57534e', 700: '#44403c', 800: '#292524', 900: '#1c1917',
+            },
+            aura: {
+              teal: '#0d9488', emerald: '#15803d', rose: '#e11d48',
+              gold: '#ca8a04', violet: '#7e22ce', sky: '#0369a1',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['-apple-system', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic', 'Meiryo', 'sans-serif'],
+            jp: ['Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'serif'],
+          },
+          animation: { 'fade-in': 'fadeIn 0.8s ease-out forwards' },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, "Meiryo", sans-serif; background-color: #ffffff; color: #44403c; -webkit-font-smoothing: antialiased; }
+    .jp-title { font-family: "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", serif; font-weight: 500; }
+    .eyebrow { font-family: Georgia, "Times New Roman", serif; letter-spacing: 0.3em; }
+    .step-num { background: linear-gradient(135deg, #0d9488, #15803d); box-shadow: 0 4px 12px rgba(13,148,136,0.25); }
+    .card { box-shadow: 0 6px 22px rgba(120,113,108,0.10); }
+    .phone { width: 232px; margin: 0 auto; padding: 9px; background: #1c1917; border-radius: 38px; box-shadow: 0 22px 45px rgba(28,25,23,0.28); position: relative; }
+    .phone::before { content: ''; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 70px; height: 6px; background: #44403c; border-radius: 99px; z-index: 2; }
+    .phone video { width: 100%; display: block; border-radius: 30px; background: #000; }
+    .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .carousel::-webkit-scrollbar { display: none; }
+    .cslide { flex: 0 0 100%; scroll-snap-align: center; display: flex; flex-direction: column; align-items: center; padding: 0 4px; }
+    .cslide img { width: auto; max-width: 100%; max-height: 460px; border-radius: 20px; border: 1px solid #e7e5e4; box-shadow: 0 10px 28px rgba(28,25,23,0.16); }
+    .cdot { width: 7px; height: 7px; border-radius: 99px; background: #d6d3d1; transition: all .25s; }
+    .cdot.active { background: #0d9488; width: 20px; }
+    .carrow { background: rgba(255,255,255,0.92); border: 1px solid #e7e5e4; box-shadow: 0 2px 10px rgba(0,0,0,0.10); }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ===== ヒーロー ===== -->
+  <header>
+    <div class="max-w-3xl mx-auto px-6 pt-12 pb-8 text-center">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">CANVA GUIDE（手動編集版）</div>
+      <h1 class="jp-title text-[1.7rem] leading-snug text-sand-800 mb-3">
+        誕生日占い<br><span class="text-aura-teal">TOP5ランキング</span>
+      </h1>
+      <p class="text-sm text-sand-500 leading-relaxed">
+        AIを使わず、<span class="font-bold text-sand-700">ご自身の手で文字を打ち替えるだけ</span>。<br>
+        テンプレの構成が分かれば、迷わず作れる解説書です。
+      </p>
+      <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-2 text-[11px] text-sand-400 bg-white/70 border border-sand-200 rounded-full px-4 py-1.5">
+        <span>⏱ 所要 約20分</span><span class="text-sand-300">｜</span><span>✍️ 手動入力版</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 pb-20 w-full">
+
+    <!-- ===== 完成イメージ ===== -->
+    <section class="mb-8 animate-fade-in">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6 sm:flex sm:items-center sm:gap-7">
+        <div class="sm:flex-1 sm:order-1">
+          <h2 class="jp-title text-lg text-sand-800 mb-2 flex items-center gap-2">
+            <span class="text-aura-gold">✦</span> どんな動画ができる？
+          </h2>
+          <p class="text-sm text-sand-500 leading-relaxed">
+            「誕生日（◯日生まれ）」でTOP5を発表する、5ページ構成の縦型リール動画です。
+            1ページずつ順位が現れる“ローディング”演出はテンプレに設定済み。
+            <span class="font-bold text-sand-700">テーマ・順位・鑑定文はご自身で自由に決めて</span>入力していただきます。
+          </p>
+          <p class="hidden sm:block text-[11px] text-sand-400 mt-4">▲ 右が完成イメージ（実際に動く見本です）</p>
+        </div>
+
+        <div class="shrink-0 mt-5 sm:mt-0 sm:order-2">
+          <div class="phone">
+            <video src="video/birthday.mp4" autoplay loop muted playsinline preload="auto"></video>
+          </div>
+          <p class="sm:hidden text-[11px] text-sand-400 text-center mt-4">▲ これが完成イメージ（実際に動く見本です）</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 進め方の地図 ===== -->
+    <section class="mb-10">
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6">
+        <h2 class="jp-title text-base text-sand-700 mb-4">作る流れ（全4ステップ）</h2>
+        <ol class="space-y-2.5 text-sm">
+          <li class="flex items-center gap-3"><a href="#step1" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">1</span><span class="text-sand-600">テンプレを自分用にコピーする</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step2" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">2</span><span class="text-sand-600">テーマ・順位・鑑定文を手入力する</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step3" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">3</span><span class="text-sand-600">背景を変える（お好みで）</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step4" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">4</span><span class="text-sand-600">背景を変えて、MP4でダウンロード</span></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== STEP 1 ===== -->
+    <section id="step1" class="mb-10 scroll-mt-16">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">1</span>
+        <div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 1</div>
+          <h2 class="jp-title text-xl text-sand-800">テンプレを自分用にコピー</h2>
+        </div>
+      </div>
+
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6 space-y-4">
+        <p class="text-sm text-sand-600 leading-relaxed">
+          まずは下のボタンからテンプレートを開きます。開いたら
+          <span class="font-bold text-aura-teal">「テンプレートを使用」</span>
+          （または右上の <span class="font-bold">…</span> →「コピーを作成」）を押して、
+          <span class="font-bold text-sand-700">あなたのCanvaの中に複製</span>しましょう。
+        </p>
+
+        <a href="https://canva.link/ve67vxzvjl14acr" target="_blank" rel="noopener"
+           class="block text-center bg-aura-teal text-white font-bold rounded-xl py-3.5 text-sm shadow-sm hover:opacity-90 transition">
+          🎨 テンプレートを開く
+        </a>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
+          <p class="font-bold text-aura-gold mb-1">⚠ ここ大事！</p>
+          元のテンプレートに直接書き込まず、<span class="font-bold">必ず「コピー」してから</span>編集してください。
+          コピーを作れば、何度でも作り直せます。
+        </div>
+
+        <p class="text-[11px] text-sand-400">
+          ※Canvaのアカウントが必要です（無料でOK）。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2 ===== -->
+    <section id="step2" class="mb-10 scroll-mt-16">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">2</span>
+        <div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 2</div>
+          <h2 class="jp-title text-xl text-sand-800">テーマ・順位・鑑定文を手入力する</h2>
+        </div>
+      </div>
+
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6 space-y-5">
+        <p class="text-sm text-sand-600 leading-relaxed">
+          このテンプレは<span class="font-bold text-sand-700">全5ページ＝5つのテーマ</span>でできています。
+          1ページごとに、下の3種類の文字を打ち替えていきます。
+        </p>
+
+        <!-- 1ページの中身マップ -->
+        <div class="bg-sand-50 border border-sand-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed space-y-2">
+          <p class="font-bold text-sand-700">📄 1ページの中身（これが5ページ分あります）</p>
+          <ul class="space-y-1.5">
+            <li class="flex gap-2"><span class="font-bold text-aura-teal shrink-0">①</span><span>テーマの見出し（例：「モテすぎ注意な人」など、1ページに1つ）</span></li>
+            <li class="flex gap-2"><span class="font-bold text-aura-teal shrink-0">②</span><span>1〜5位の「◯日生まれ」（5つ）</span></li>
+            <li class="flex gap-2"><span class="font-bold text-aura-teal shrink-0">③</span><span>各順位の一言鑑定文（5つ）</span></li>
+          </ul>
+          <p class="text-[12px] text-sand-500 pt-1">→ 1ページ11箇所 ×5ページ＝<span class="font-bold text-sand-700">合計55箇所</span>を打ち替えます。</p>
+        </div>
+
+        <!-- 文字の打ち替え方 -->
+        <div>
+          <p class="font-bold text-sand-700 text-sm mb-3">✍️ 文字の打ち替え方（Canvaの基本操作）</p>
+          <ol class="space-y-3 text-sm text-sand-600">
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">1</span><p>書き換えたい文字を<span class="font-bold text-sand-700">ダブルタップ（ダブルクリック）</span>する</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">2</span><p>文字が選択された状態になるので、<span class="font-bold text-sand-700">そのまま新しい文字を入力</span>（自動で元の文字と入れ替わります）</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">3</span><p>枠の外をタップして確定。これを①②③ぶん、5ページ繰り返すだけです</p></li>
+          </ol>
+        </div>
+
+        <div class="bg-violet-50 border border-violet-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
+          <p class="font-bold text-aura-violet mb-1">💡 テーマ・鑑定文はご自由に</p>
+          恋愛・モテ・金運・転機・才能 など、お好きな切り口で「◯◯な人」というテーマを5つ考えて、それぞれのテーマに合う一言鑑定文（順位ごとに15文字以内が目安）を入れてください。
+          もとの見本の文章をそのまま使っていただいてもOKです。
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
+          <p class="font-bold text-aura-gold mb-1">⚠ 文字数の目安</p>
+          一言鑑定文が長すぎると枠からはみ出してしまいます。<span class="font-bold">15文字以内</span>を目安に、はみ出していないか都度確認しながら進めてください。
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3 ===== -->
+    <section id="step3" class="mb-10 scroll-mt-16">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">3</span>
+        <div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 3</div>
+          <h2 class="jp-title text-xl text-sand-800">背景を変える（お好みで）</h2>
+        </div>
+      </div>
+
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6 space-y-6">
+        <p class="text-sm text-sand-600 leading-relaxed">
+          文字が入ったら、お好みで背景も変えられます（変えなくてもOK）。
+          背景を変えるときは<span class="font-bold text-sand-700">順番がだいじ</span>。
+          下のスクショと合わせて進めてね👇
+        </p>
+
+        <div>
+          <ol class="space-y-3 text-sm text-sand-600">
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">1</span>
+              <p>背景にしたい画像を選んで画面に表示させたら、上の <span class="font-bold text-sand-700">「・・・」</span> をタップ</p>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">2</span>
+              <p>メニューの <span class="font-bold text-sand-700">「画像を背景として設定」</span> をタップ</p>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">3</span>
+              <p><span class="font-bold text-sand-700">鉛筆マーク</span>の編集ボタンを押して、<span class="font-bold text-sand-700">編集画面を開く</span></p>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-aura-rose text-white text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">4</span>
+              <p><span class="font-bold text-sand-700">元の背景を削除</span>：いらなくなった元の背景を選んで <span class="font-bold">ゴミ箱マーク</span> で消す</p>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-aura-rose text-white text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">5</span>
+              <p><span class="font-bold text-sand-700">秒数を調整</span>：背景を変えると尺がズレることがあるので、各ページの秒数を元の長さに合わせる（目安：各ページ約4秒）</p>
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <p class="text-[12px] text-sand-500 mb-3 text-center">📱 実際の画面（<span class="font-bold text-aura-teal">スワイプ</span>で順番に見れます）</p>
+          <div class="relative">
+            <div id="bgCarousel" class="carousel rounded-2xl">
+              <div class="cslide">
+                <img src="images/bg_step1.jpg" alt="手順1 背景にしたい画像を選んで表示する" loading="lazy" />
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">①</span> 背景にしたい画像を選んで「・・・」をタップ</p>
+              </div>
+              <div class="cslide">
+                <img src="images/bg_step2.jpg" alt="手順2 画像を背景として設定" loading="lazy" />
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">②</span> メニューから「画像を背景として設定」をタップ</p>
+              </div>
+              <div class="cslide">
+                <img src="images/bg_step3.jpg" alt="手順3 鉛筆マークで編集画面を開く" loading="lazy" />
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">③</span> 鉛筆マークの編集ボタンで編集画面を開く</p>
+              </div>
+              <div class="cslide">
+                <img src="images/bg_step4.jpg" alt="手順4 元の背景をゴミ箱で削除" loading="lazy" />
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-rose">④</span> いらない元の背景を選んでゴミ箱マークで削除</p>
+              </div>
+              <div class="cslide">
+                <img src="images/bg_step5.jpg" alt="手順5 秒数を調整" loading="lazy" />
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-rose">⑤</span> 秒数がズレたら各ページの長さを調整（目安：約4秒）</p>
+              </div>
+            </div>
+
+            <button type="button" onclick="bgMove(-1)" aria-label="前へ"
+              class="carrow hidden sm:flex absolute left-1 top-[40%] -translate-y-1/2 w-9 h-9 rounded-full items-center justify-center text-sand-600">‹</button>
+            <button type="button" onclick="bgMove(1)" aria-label="次へ"
+              class="carrow hidden sm:flex absolute right-1 top-[40%] -translate-y-1/2 w-9 h-9 rounded-full items-center justify-center text-sand-600">›</button>
+          </div>
+
+          <div id="bgDots" class="flex items-center justify-center gap-1.5 mt-4">
+            <span class="cdot active"></span><span class="cdot"></span><span class="cdot"></span><span class="cdot"></span><span class="cdot"></span>
+          </div>
+
+          <p class="text-[11px] text-sand-400 mt-3">
+            ※背景は5ページ分それぞれに設定します。同じ背景でいい場合は、1ページ作ってからページごとコピーすると早いです。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4 ===== -->
+    <section id="step4" class="mb-10 scroll-mt-16">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">4</span>
+        <div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 4</div>
+          <h2 class="jp-title text-xl text-sand-800">MP4でダウンロード</h2>
+        </div>
+      </div>
+
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6 space-y-6">
+        <p class="text-sm text-sand-600 leading-relaxed">
+          文字（と、お好みで背景）が入ったら、最後に動画として書き出します。
+        </p>
+
+        <div class="sm:flex sm:gap-7 sm:items-center">
+          <ol class="sm:flex-1 space-y-3 text-sm text-sand-600">
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">1</span><p>右上の <span class="font-bold text-sand-700">「共有」</span> をタップ</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">2</span><p>出てきた画面の下の <span class="font-bold text-sand-700">「ダウンロード」</span> を選択</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">3</span><p>ファイルの種類＝ <span class="font-bold text-sand-700">「MP4形式の動画」</span></p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">4</span><p>画質＝ <span class="font-bold text-sand-700">「1080p HD」</span> がおすすめ</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">5</span><p>ページ＝ <span class="font-bold text-sand-700">「すべてのページ（1〜5）」</span> → ダウンロード</p></li>
+          </ol>
+
+          <figure class="shrink-0 mt-5 sm:mt-0 mx-auto text-center">
+            <img src="images/download_share.jpg" alt="共有→ダウンロードの画面" loading="lazy"
+              class="mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
+            <figcaption class="text-[12px] text-sand-500 mt-3">▲「共有」を押すとこの画面。下の<span class="font-bold text-sand-700">「ダウンロード」</span>へ</figcaption>
+          </figure>
+        </div>
+
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center text-sm">
+          <p class="jp-title text-lg text-aura-emerald mb-1">完成です！🎉</p>
+          <p class="text-sand-600">お疲れさまでした。あとはインスタに投稿するだけ✨</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-sand-200 py-8 text-center">
+    <p class="eyebrow text-[10px] text-sand-400">Niji Office</p>
+    <p class="text-[11px] text-sand-400 mt-1">誕生日占い TOP5ランキング 使い方ガイド（手動編集版）</p>
+  </footer>
+
+  <script>
+    (function () {
+      var c = document.getElementById('bgCarousel');
+      if (!c) return;
+      var dots = document.querySelectorAll('#bgDots .cdot');
+      window.bgMove = function (dir) {
+        c.scrollBy({ left: dir * c.clientWidth, behavior: 'smooth' });
+      };
+      var ticking = false;
+      c.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var i = Math.round(c.scrollLeft / c.clientWidth);
+          dots.forEach(function (d, n) { d.classList.toggle('active', n === i); });
+          ticking = false;
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
