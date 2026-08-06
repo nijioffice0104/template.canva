@@ -291,11 +291,7 @@
           </li>
         </ol>
 
-        <div class="phimg">
-          <span class="ico">✏️</span>
-          <span class="lbl">テーマの文字編集イメージ</span>
-          <span class="path">images/step3_edit_theme.jpg</span>
-        </div>
+        <img src="images/step3_edit_theme.png" alt="タイトルボックスを編集" class="zoomable w-full rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]">
 
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
           <p class="font-bold text-aura-gold mb-1">⚠ はみ出し注意</p>
@@ -322,11 +318,7 @@
           <span class="font-bold text-sand-700">ドラッグ&amp;ドロップ</span>で移動させましょう。
         </p>
 
-        <div class="phimg">
-          <span class="ico">🔀</span>
-          <span class="lbl">順位の枠をキャラの位置へ移動するイメージ</span>
-          <span class="path">images/step4_move_rank.jpg</span>
-        </div>
+        <img src="images/step4_move_rank.png" alt="順位の枠をキャラの位置へ移動" class="zoomable w-full rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]">
 
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
           <p class="font-bold text-aura-gold mb-1">⚠ 動かしたら再生確認</p>
@@ -357,11 +349,7 @@
           「1位」などの<span class="font-bold text-sand-700">順位の数字は元のまま</span>でOKです。
         </p>
 
-        <div class="phimg">
-          <span class="ico">💬</span>
-          <span class="lbl">ミニ鑑定文の編集イメージ</span>
-          <span class="path">images/step5_edit_reading.jpg</span>
-        </div>
+        <img src="images/step5_edit_reading.png" alt="全12順位ぶんミニ鑑定文を編集した完成イメージ" class="zoomable w-full rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]">
 
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
           <p class="font-bold text-aura-gold mb-1">⚠ はみ出し注意</p>
@@ -401,10 +389,25 @@
           </li>
         </ol>
 
-        <div class="phimg wide">
-          <span class="ico">🖼️</span>
-          <span class="lbl">背景差し替えイメージ</span>
-          <span class="path">images/step6_change_bg.jpg</span>
+        <div>
+          <p class="text-[12px] text-sand-500 mb-3 text-center">📱 実際の画面（<span class="font-bold text-aura-teal">スワイプ</span>で順番に見れます）</p>
+          <div class="relative">
+            <div id="bgCarousel" class="carousel rounded-2xl">
+              <div class="cslide">
+                <img src="images/bg_set.png" alt="「・・・」から画像を背景として設定" loading="lazy" class="zoomable">
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">①</span> 「・・・」→「画像を背景として設定」</p>
+              </div>
+              <div class="cslide">
+                <img src="images/bg_delete_old.png" alt="元の背景を削除しながら秒数も調整" loading="lazy" class="zoomable">
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-rose">②</span> 不要になった元の背景を削除</p>
+              </div>
+            </div>
+            <button type="button" onclick="bgMove(-1)" aria-label="前へ" class="carrow hidden sm:flex absolute left-1 top-[40%] -translate-y-1/2 w-9 h-9 rounded-full items-center justify-center text-sand-600">‹</button>
+            <button type="button" onclick="bgMove(1)" aria-label="次へ" class="carrow hidden sm:flex absolute right-1 top-[40%] -translate-y-1/2 w-9 h-9 rounded-full items-center justify-center text-sand-600">›</button>
+          </div>
+          <div id="bgDots" class="flex items-center justify-center gap-1.5 mt-4">
+            <span class="cdot active"></span><span class="cdot"></span>
+          </div>
         </div>
 
         <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
@@ -438,10 +441,25 @@
           <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">4</span><p>「ダウンロード」ボタンを押す</p></li>
         </ol>
 
-        <div class="phimg wide">
-          <span class="ico">⬇️</span>
-          <span class="lbl">共有→ダウンロードの画面</span>
-          <span class="path">images/step7_download.jpg</span>
+        <div>
+          <p class="text-[12px] text-sand-500 mb-3 text-center">📱 実際の画面（<span class="font-bold text-aura-teal">スワイプ</span>で順番に見れます）</p>
+          <div class="relative">
+            <div id="dlCarousel" class="carousel rounded-2xl">
+              <div class="cslide">
+                <img src="images/step7_share.png" alt="共有からダウンロードを選択" loading="lazy" class="zoomable">
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">①</span> 「共有」→「ダウンロード」アイコン</p>
+              </div>
+              <div class="cslide">
+                <img src="images/step7_download.png" alt="MP4形式を選んでダウンロード" loading="lazy" class="zoomable">
+                <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">②</span> MP4形式を確認して「ダウンロード」</p>
+              </div>
+            </div>
+            <button type="button" onclick="dlMove(-1)" aria-label="前へ" class="carrow hidden sm:flex absolute left-1 top-[40%] -translate-y-1/2 w-9 h-9 rounded-full items-center justify-center text-sand-600">‹</button>
+            <button type="button" onclick="dlMove(1)" aria-label="次へ" class="carrow hidden sm:flex absolute right-1 top-[40%] -translate-y-1/2 w-9 h-9 rounded-full items-center justify-center text-sand-600">›</button>
+          </div>
+          <div id="dlDots" class="flex items-center justify-center gap-1.5 mt-4">
+            <span class="cdot active"></span><span class="cdot"></span>
+          </div>
         </div>
 
         <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center text-sm">
@@ -496,6 +514,46 @@
       lb.addEventListener('click', closeLightbox);
       document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+    })();
+
+    // 背景差し替えカルーセル
+    (function () {
+      var c = document.getElementById('bgCarousel');
+      if (!c) return;
+      var dots = document.querySelectorAll('#bgDots .cdot');
+      window.bgMove = function (dir) {
+        c.scrollBy({ left: dir * c.clientWidth, behavior: 'smooth' });
+      };
+      var ticking = false;
+      c.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var i = Math.round(c.scrollLeft / c.clientWidth);
+          dots.forEach(function (d, n) { d.classList.toggle('active', n === i); });
+          ticking = false;
+        });
+      });
+    })();
+
+    // ダウンロードカルーセル
+    (function () {
+      var c = document.getElementById('dlCarousel');
+      if (!c) return;
+      var dots = document.querySelectorAll('#dlDots .cdot');
+      window.dlMove = function (dir) {
+        c.scrollBy({ left: dir * c.clientWidth, behavior: 'smooth' });
+      };
+      var ticking = false;
+      c.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var i = Math.round(c.scrollLeft / c.clientWidth);
+          dots.forEach(function (d, n) { d.classList.toggle('active', n === i); });
+          ticking = false;
+        });
+      });
     })();
   </script>
 
