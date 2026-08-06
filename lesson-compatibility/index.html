@@ -102,6 +102,59 @@
   </style>
 </head>
 <body class="antialiased">
+
+  <!-- ===== パスワードゲート ===== -->
+  <div id="pwGate" class="fixed inset-0 z-50 bg-white flex items-center justify-center px-6">
+    <div class="w-full max-w-xs text-center">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">PASSWORD</div>
+      <h1 class="jp-title text-lg text-sand-800 mb-1">このページはパスワードで<br>保護されています</h1>
+      <p class="text-[12px] text-sand-500 mb-5">お渡しされたパスワードを入力してください。</p>
+      <input id="pwInput" type="password" autocomplete="off" placeholder="パスワードを入力" class="w-full text-sm text-center border-2 border-sand-200 focus:border-aura-teal focus:outline-none rounded-xl py-3 px-4 mb-3">
+      <button id="pwSubmit" type="button" class="w-full bg-aura-teal text-white font-bold rounded-xl py-3 text-sm hover:opacity-90 transition">
+        入室する
+      </button>
+      <p id="pwError" class="text-[12px] text-aura-rose mt-3 hidden">パスワードが違います。もう一度お試しください。</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = 'aisho_unlock';
+      var PASSWORD_HASH = '14ddbe6571e49c7427b3d82317cfa792e6f0bdf8fff06c73c28153fd7a8a6451'; // = "aisho26"
+
+      if (localStorage.getItem(STORAGE_KEY) === '1') {
+        var gEarly = document.getElementById('pwGate');
+        if (gEarly) gEarly.remove();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          var input = document.getElementById('pwInput');
+          var submit = document.getElementById('pwSubmit');
+          var error = document.getElementById('pwError');
+
+          async function sha256Hex(text) {
+            var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+            return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+          }
+
+          async function attempt() {
+            var hash = await sha256Hex(input.value);
+            if (hash === PASSWORD_HASH) {
+              localStorage.setItem(STORAGE_KEY, '1');
+              document.getElementById('pwGate').remove();
+            } else {
+              error.classList.remove('hidden');
+              input.value = '';
+              input.focus();
+            }
+          }
+
+          submit.addEventListener('click', attempt);
+          input.addEventListener('keydown', function (e) { if (e.key === 'Enter') attempt(); });
+          input.focus();
+        });
+      }
+    })();
+  </script>
   <!-- ===== ヒーロー ===== -->
   <header>
     <div class="max-w-3xl mx-auto px-6 pt-12 pb-8 text-center">
@@ -179,7 +232,7 @@
           <span class="font-bold text-sand-700">あなたのCanvaの中に複製</span>しましょう。
         </p>
 
-        <a href="https://canva.link/lmyde38463fjcke" target="_blank" rel="noopener" class="block text-center bg-aura-teal text-white font-bold rounded-xl py-3.5 text-sm shadow-sm hover:opacity-90 transition">
+        <a href="https://canva.link/9fj617qlmd0ifwi" target="_blank" rel="noopener" class="block text-center bg-aura-teal text-white font-bold rounded-xl py-3.5 text-sm shadow-sm hover:opacity-90 transition">
           🎨 12星座×相性テンプレートを開く
         </a>
 
