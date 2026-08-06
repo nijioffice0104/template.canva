@@ -2,11 +2,13 @@
 ====================================================
 ※ 2026-08-06、単独フォルダから「手動編集ガイド一式/lesson-attribute」に移動しました。
   兄弟サイト（lesson-birthday, lesson-distribution）に合わせて以下を変更済み：
-  ・パスワードゲートを撤去（このハブ内の他レッスンと同じく認証なし）
   ・アクセントカラーを gold(プライマリ使用分) → teal（他レッスンと統一。⚠警告と✦アイコンは
     元々gold運用が兄弟サイトと共通の慣習だったのでそのまま）
   ・ヘッダー文言を「CANVA GUIDE（手動編集版）」「✍️ 手動入力版」に統一
   ・タイトルタグを「属性分け診断動画｜Canvaテンプレの使い方（手動編集版）」に変更
+  ※ このとき一旦パスワードゲートを撤去したが、同日中に「レッスンごとに個別パスワードを
+    かけたい」と本人から要望があり、パスワード zokusei26 で再度ゲートを追加した
+    （PASSWORD_HASH: 3dfbd80a4f0dca6dec31ad10ebef45f62dc24cbfb600669fe379ec5a91a39196）。
 
 ■ 参考にした既存サイト
 https://friendly-squirrel-90bb3e.netlify.app/lesson-attribute/
@@ -73,7 +75,7 @@ https://github.com/nijioffice0104/template.canva.git のmainブランチにpush�
 同じリポジトリにcommit・pushしていく想定。
 
 ■ 今すぐ確認する方法
-index.html をダブルクリックして開くとブラウザで見れます。パスワードは不要です。
+index.html をダブルクリックして開くとブラウザで見れます。パスワードは zokusei26 です。
 
 ■ 公開するとき
 GitHub Pagesにアップする場合は、他のガイドサイトと同じ要領でリポジトリ内にこのフォルダ
