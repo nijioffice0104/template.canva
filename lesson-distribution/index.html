@@ -261,7 +261,7 @@
 ・縦軸ラベル（上下）と横軸ラベル（左右）：各6文字以内
 ・4つのゾーン名（4つの角につけるタイプ名）：各6文字以内
 ・12星座（おひつじ座〜うお座）を4ゾーンに3個ずつ均等に振り分け
-・各星座の一言（そのタイプが伝わる一言、10文字以内）
+・各星座の一言（そのタイプが伝わる一言、2行以内・1行15文字程度）
 
 ▼ 出力してほしい形式
 ■テーマ：（テーマ名）
@@ -274,21 +274,21 @@
 【（ゾーン名4）】◯◯座・◯◯座・◯◯座
 
 （星座ごとの一言）
-おひつじ座：（10文字以内）
-おうし座：（10文字以内）
-ふたご座：（10文字以内）
-かに座：（10文字以内）
-しし座：（10文字以内）
-おとめ座：（10文字以内）
-てんびん座：（10文字以内）
-さそり座：（10文字以内）
-いて座：（10文字以内）
-やぎ座：（10文字以内）
-みずがめ座：（10文字以内）
-うお座：（10文字以内）
+おひつじ座：（2行以内・1行15文字程度）
+おうし座：（2行以内・1行15文字程度）
+ふたご座：（2行以内・1行15文字程度）
+かに座：（2行以内・1行15文字程度）
+しし座：（2行以内・1行15文字程度）
+おとめ座：（2行以内・1行15文字程度）
+てんびん座：（2行以内・1行15文字程度）
+さそり座：（2行以内・1行15文字程度）
+いて座：（2行以内・1行15文字程度）
+やぎ座：（2行以内・1行15文字程度）
+みずがめ座：（2行以内・1行15文字程度）
+うお座：（2行以内・1行15文字程度）
 
 ▼ お願い
-・軸ラベル・ゾーン名は6文字以内、一言は10文字以内を厳守してください（テンプレの枠からはみ出します）
+・軸ラベル・ゾーン名は6文字以内、一言は2行以内（1行15文字程度）を厳守してください（テンプレの枠からはみ出します）
 ・12星座は必ず4ゾーンに3個ずつ均等に振り分けてください</pre>
         </div>
 
@@ -336,6 +336,11 @@
           <p class="font-bold text-aura-gold mb-1">⚠ 文字数の目安</p>
           軸ラベル・ゾーン名が長すぎると枠からはみ出してしまいます。<span class="font-bold">6文字以内</span>を目安に、はみ出していないか確認しながら進めてください。
         </div>
+
+        <figure class="text-center">
+          <img src="images/step3_edit_labels.jpg" alt="タイトル・軸ラベル・ゾーン名を打ち替える箇所" loading="lazy" class="zoomable mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
+          <figcaption class="text-[12px] text-sand-500 mt-3">▲ 赤枠のタイトル・軸ラベル・4隅のゾーン名を打ち替えます</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -351,10 +356,22 @@
 
       <div class="bg-white card rounded-2xl border border-sand-200 p-6 space-y-5">
         <p class="text-sm text-sand-600 leading-relaxed">
-          12星座のキャラは、もともとテンプレの中に1つずつ配置されています。
-          STEP2で決めたゾーン分けに合わせて、<span class="font-bold text-sand-700">キャラをドラッグして該当ゾーンへ移動</span>させてください。
+          12星座のキャラは、それぞれ<span class="font-bold text-sand-700">「画像＋星座名＋戻る場所」の3点セットでグループ化</span>されています。
+          アニメーションは常にこの<span class="font-bold text-sand-700">「戻る場所」に向かって動く</span>ように設定されているので、
+          STEP2で決めたゾーン分けに合わせて<span class="font-bold text-sand-700">「戻る場所」を目的のゾーンまで移動</span>させれば、
+          あとは自動でそこに収まるように動いてくれます。
           テンプレの位置のままでちょうど合っている場合は、動かさなくてもOKです。
         </p>
+
+        <div>
+          <p class="font-bold text-sand-700 text-sm mb-3">✍️「戻る場所」の動かし方</p>
+          <ol class="space-y-3 text-sm text-sand-600">
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">1</span><p>画面下部の<span class="font-bold text-sand-700">タイムライン</span>で、動かしたいキャラのグループの帯をクリックして選択</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">2</span><p>帯の右端にある<span class="font-bold text-sand-700">展開ボタン（↑マーク）</span>を押すと、グループ内の「画像」「星座名」「戻る場所」がサブトラックとして展開されます</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">3</span><p>その中から<span class="font-bold text-sand-700">「戻る場所」</span>を選択</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">4</span><p>選択した状態でキャンバス上に表示されるマークを、<span class="font-bold text-sand-700">目的のゾーンまでドラッグ</span>して移動</p></li>
+          </ol>
+        </div>
 
         <div>
           <p class="font-bold text-sand-700 text-sm mb-3">🖼 キャラ画像を差し替えたいとき（任意）</p>
@@ -370,10 +387,10 @@
           「3個ずつ均等」が基本ですが、テーマに合わせて自由に振り分けていただいてOKです。
         </div>
 
-        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
-          <p class="font-bold text-aura-gold mb-1">⚠ キャラを動かしたら再生確認</p>
-          位置を動かすとアニメーションのタイミングがズレることがあります。動かし終わったら一度再生して、崩れていないか確認してください。
-        </div>
+        <figure class="text-center">
+          <img src="images/step4_move_characters.jpg" alt="12星座のキャラが4ゾーンに配置された完成状態" loading="lazy" class="zoomable mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
+          <figcaption class="text-[12px] text-sand-500 mt-3">▲「戻る場所」を移動させた結果、アニメーションの最後にキャラが該当ゾーンへ集まった状態</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -394,8 +411,13 @@
 
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
           <p class="font-bold text-aura-gold mb-1">⚠ 文字数の目安</p>
-          一言が長すぎると枠からはみ出してしまいます。<span class="font-bold">10文字以内</span>を目安に、はみ出していないか都度確認しながら進めてください。
+          一言が長すぎると枠からはみ出してしまいます。<span class="font-bold">2行以内（1行あたり15文字程度）</span>を目安に、はみ出していないか都度確認しながら進めてください。
         </div>
+
+        <figure class="text-center">
+          <img src="images/step5_edit_messages.jpg" alt="12星座それぞれの一言メッセージを入力した完成状態" loading="lazy" class="zoomable mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
+          <figcaption class="text-[12px] text-sand-500 mt-3">▲ 全12星座ぶんの一言を打ち替えた完成イメージ</figcaption>
+        </figure>
       </div>
     </section>
 
