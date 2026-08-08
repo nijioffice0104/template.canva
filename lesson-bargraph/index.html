@@ -131,14 +131,15 @@
     <!-- ===== 進め方の地図 ===== -->
     <section class="mb-10">
       <div class="bg-white card rounded-2xl border border-sand-200 p-6">
-        <h2 class="jp-title text-base text-sand-700 mb-4">作る流れ（全6ステップ）</h2>
+        <h2 class="jp-title text-base text-sand-700 mb-4">作る流れ（全7ステップ）</h2>
         <ol class="space-y-2.5 text-sm">
           <li class="flex items-center gap-3"><a href="#step1" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">1</span><span class="text-sand-600">テンプレを自分用にコピーする</span></a></li>
           <li class="flex items-center gap-3"><a href="#step2" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">2</span><span class="text-sand-600">AIにテーマ・順位・鑑定文を考えてもらう</span></a></li>
-          <li class="flex items-center gap-3"><a href="#step3" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">3</span><span class="text-sand-600">グラフの棒を該当するキャラクターの位置に移動</span></a></li>
-          <li class="flex items-center gap-3"><a href="#step4" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">4</span><span class="text-sand-600">鑑定文を入力する</span></a></li>
-          <li class="flex items-center gap-3"><a href="#step5" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">5</span><span class="text-sand-600">背景・キャラを変更（任意）</span></a></li>
-          <li class="flex items-center gap-3"><a href="#step6" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">6</span><span class="text-sand-600">MP4でダウンロード</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step3" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">3</span><span class="text-sand-600">タイトルを入力する</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step4" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">4</span><span class="text-sand-600">グラフの棒を該当するキャラクターの位置に移動</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step5" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">5</span><span class="text-sand-600">鑑定文を入力する</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step6" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">6</span><span class="text-sand-600">背景・キャラを変更（任意）</span></a></li>
+          <li class="flex items-center gap-3"><a href="#step7" class="contents"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0">7</span><span class="text-sand-600">MP4でダウンロード</span></a></li>
         </ol>
       </div>
     </section>
@@ -203,7 +204,7 @@
 
         <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 text-sm text-sand-600 leading-relaxed">
           <p class="font-bold text-aura-sky mb-1">💡 これはCanvaを自動操作するものではありません</p>
-          あくまで<span class="font-bold">文章のアイデア出し用</span>です。AIが出してくれた内容を、次のSTEP3〜4でご自身の手でCanvaに入力していきます。
+          あくまで<span class="font-bold">文章のアイデア出し用</span>です。AIが出してくれた内容を、次のSTEP3〜5でご自身の手でCanvaに入力していきます。
         </div>
 
         <!-- 呪文プロンプト -->
@@ -255,12 +256,43 @@
       </div>
     </section>
 
-    <!-- ===== STEP 3 ===== -->
+    <!-- ===== STEP 3（タイトル入力） ===== -->
     <section id="step3" class="mb-10 scroll-mt-16">
       <div class="flex items-center gap-3 mb-4">
         <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">3</span>
         <div>
           <div class="eyebrow text-[10px] text-sand-400">STEP 3</div>
+          <h2 class="jp-title text-xl text-sand-800">タイトルを入力する</h2>
+        </div>
+      </div>
+
+      <div class="bg-white card rounded-2xl border border-sand-200 p-6 space-y-5">
+        <p class="text-sm text-sand-600 leading-relaxed">
+          STEP2でAIが考えてくれたタイトル（2行構成）を、テンプレ上部のタイトルボックスに打ち込みます。
+        </p>
+
+        <div>
+          <p class="font-bold text-sand-700 text-sm mb-3">✍️ 文字の打ち替え方（Canvaの基本操作）</p>
+          <ol class="space-y-3 text-sm text-sand-600">
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">1</span><p>書き換えたい文字を<span class="font-bold text-sand-700">ダブルタップ（ダブルクリック）</span>する</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">2</span><p>文字が選択された状態になるので、<span class="font-bold text-sand-700">そのまま新しい文字を入力</span>（自動で元の文字と入れ替わります）</p></li>
+            <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sand-100 text-sand-500 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">3</span><p>枠の外をタップして確定</p></li>
+          </ol>
+        </div>
+
+        <figure class="text-center">
+          <img src="images/step3_edit_title.jpg" alt="タイトルボックスを編集する箇所" loading="lazy" class="zoomable mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
+          <figcaption class="text-[12px] text-sand-500 mt-3">▲ 赤枠のタイトルボックスを打ち替えます</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4 ===== -->
+    <section id="step4" class="mb-10 scroll-mt-16">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">4</span>
+        <div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 4</div>
           <h2 class="jp-title text-xl text-sand-800">グラフの棒を該当するキャラクターの位置に移動</h2>
         </div>
       </div>
@@ -278,12 +310,12 @@
       </div>
     </section>
 
-    <!-- ===== STEP 4 ===== -->
-    <section id="step4" class="mb-10 scroll-mt-16">
+    <!-- ===== STEP 5 ===== -->
+    <section id="step5" class="mb-10 scroll-mt-16">
       <div class="flex items-center gap-3 mb-4">
-        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">4</span>
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">5</span>
         <div>
-          <div class="eyebrow text-[10px] text-sand-400">STEP 4</div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 5</div>
           <h2 class="jp-title text-xl text-sand-800">鑑定文を入力する</h2>
         </div>
       </div>
@@ -311,12 +343,12 @@
       </div>
     </section>
 
-    <!-- ===== STEP 5 ===== -->
-    <section id="step5" class="mb-10 scroll-mt-16">
+    <!-- ===== STEP 6 ===== -->
+    <section id="step6" class="mb-10 scroll-mt-16">
       <div class="flex items-center gap-3 mb-4">
-        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">5</span>
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">6</span>
         <div>
-          <div class="eyebrow text-[10px] text-sand-400">STEP 5</div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 6</div>
           <h2 class="jp-title text-xl text-sand-800">背景・キャラを変更（任意）</h2>
         </div>
       </div>
@@ -372,12 +404,12 @@
       </div>
     </section>
 
-    <!-- ===== STEP 6 ===== -->
-    <section id="step6" class="mb-10 scroll-mt-16">
+    <!-- ===== STEP 7 ===== -->
+    <section id="step7" class="mb-10 scroll-mt-16">
       <div class="flex items-center gap-3 mb-4">
-        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">6</span>
+        <span class="step-num w-11 h-11 rounded-2xl text-white flex items-center justify-center jp-title text-lg shrink-0">7</span>
         <div>
-          <div class="eyebrow text-[10px] text-sand-400">STEP 6</div>
+          <div class="eyebrow text-[10px] text-sand-400">STEP 7</div>
           <h2 class="jp-title text-xl text-sand-800">MP4でダウンロード</h2>
         </div>
       </div>
