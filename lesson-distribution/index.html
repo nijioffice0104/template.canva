@@ -53,9 +53,78 @@
     .cdot { width: 7px; height: 7px; border-radius: 99px; background: #d6d3d1; transition: all .25s; }
     .cdot.active { background: #0d9488; width: 20px; }
     .carrow { background: rgba(255,255,255,0.92); border: 1px solid #e7e5e4; box-shadow: 0 2px 10px rgba(0,0,0,0.10); }
+
+    /* ===== 画像タップで拡大表示（ライトボックス） ===== */
+    img.zoomable { cursor: zoom-in; }
+    #lightbox {
+      position: fixed; inset: 0; z-index: 60; padding: 20px;
+      background: rgba(28,25,23,0.92);
+      display: none; align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox img { max-width: 100%; max-height: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); cursor: default; }
+    #lightboxClose {
+      position: absolute; top: 16px; right: 16px; width: 40px; height: 40px;
+      border-radius: 999px; background: rgba(255,255,255,0.15); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 22px; border: none;
+    }
   </style>
 </head>
 <body class="antialiased">
+
+  <!-- ===== パスワードゲート ===== -->
+  <div id="pwGate" class="fixed inset-0 z-50 bg-white flex items-center justify-center px-6">
+    <div class="w-full max-w-xs text-center">
+      <div class="eyebrow text-[11px] text-sand-400 mb-3">PASSWORD</div>
+      <h1 class="jp-title text-lg text-sand-800 mb-1">このページはパスワードで<br>保護されています</h1>
+      <p class="text-[12px] text-sand-500 mb-5">お渡しされたパスワードを入力してください。</p>
+      <input id="pwInput" type="password" autocomplete="off" placeholder="パスワードを入力" class="w-full text-sm text-center border-2 border-sand-200 focus:border-aura-teal focus:outline-none rounded-xl py-3 px-4 mb-3">
+      <button id="pwSubmit" type="button" class="w-full bg-aura-teal text-white font-bold rounded-xl py-3 text-sm hover:opacity-90 transition">
+        入室する
+      </button>
+      <p id="pwError" class="text-[12px] text-aura-rose mt-3 hidden">パスワードが違います。もう一度お試しください。</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = 'bunpu_unlock';
+      var PASSWORD_HASH = '049a7a6b1f583cf939c60ff8b38b6e240ee2250515874434b99a4dc1edc62053'; // = "bunpu26"
+
+      if (localStorage.getItem(STORAGE_KEY) === '1') {
+        var gEarly = document.getElementById('pwGate');
+        if (gEarly) gEarly.remove();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          var input = document.getElementById('pwInput');
+          var submit = document.getElementById('pwSubmit');
+          var error = document.getElementById('pwError');
+
+          async function sha256Hex(text) {
+            var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+            return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+          }
+
+          async function attempt() {
+            var hash = await sha256Hex(input.value);
+            if (hash === PASSWORD_HASH) {
+              localStorage.setItem(STORAGE_KEY, '1');
+              document.getElementById('pwGate').remove();
+            } else {
+              error.classList.remove('hidden');
+              input.value = '';
+              input.focus();
+            }
+          }
+
+          submit.addEventListener('click', attempt);
+          input.addEventListener('keydown', function (e) { if (e.key === 'Enter') attempt(); });
+          input.focus();
+        });
+      }
+    })();
+  </script>
 
   <!-- ===== ヒーロー ===== -->
   <header>
@@ -377,23 +446,23 @@
           <div class="relative">
             <div id="bgCarousel" class="carousel rounded-2xl">
               <div class="cslide">
-                <img src="images/bg_step1.jpg" alt="手順1 背景にしたい画像を選んで表示する" loading="lazy" />
+                <img src="images/bg_step1.jpg" alt="手順1 背景にしたい画像を選んで表示する" loading="lazy" class="zoomable" />
                 <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">①</span> 背景にしたい画像を選んで「・・・」をタップ</p>
               </div>
               <div class="cslide">
-                <img src="images/bg_step2.jpg" alt="手順2 画像を背景として設定" loading="lazy" />
+                <img src="images/bg_step2.jpg" alt="手順2 画像を背景として設定" loading="lazy" class="zoomable" />
                 <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">②</span> メニューから「画像を背景として設定」をタップ</p>
               </div>
               <div class="cslide">
-                <img src="images/bg_step3.jpg" alt="手順3 鉛筆マークで編集画面を開く" loading="lazy" />
+                <img src="images/bg_step3.jpg" alt="手順3 鉛筆マークで編集画面を開く" loading="lazy" class="zoomable" />
                 <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-teal">③</span> 鉛筆マークの編集ボタンで編集画面を開く</p>
               </div>
               <div class="cslide">
-                <img src="images/bg_step4.jpg" alt="手順4 元の背景をゴミ箱で削除" loading="lazy" />
+                <img src="images/bg_step4.jpg" alt="手順4 元の背景をゴミ箱で削除" loading="lazy" class="zoomable" />
                 <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-rose">④</span> いらない元の背景を選んでゴミ箱マークで削除</p>
               </div>
               <div class="cslide">
-                <img src="images/bg_step5.jpg" alt="手順5 秒数を調整" loading="lazy" />
+                <img src="images/bg_step5.jpg" alt="手順5 秒数を調整" loading="lazy" class="zoomable" />
                 <p class="text-[12px] text-sand-600 text-center mt-3 max-w-xs"><span class="font-bold text-aura-rose">⑤</span> 秒数がズレたら長さを調整</p>
               </div>
             </div>
@@ -436,7 +505,7 @@
 
           <figure class="shrink-0 mt-5 sm:mt-0 mx-auto text-center">
             <img src="images/download_share.jpg" alt="共有→ダウンロードの画面" loading="lazy"
-              class="mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
+              class="zoomable mx-auto w-auto max-w-full max-h-[460px] rounded-2xl border border-sand-200 shadow-[0_10px_28px_rgba(28,25,23,0.16)]" />
             <figcaption class="text-[12px] text-sand-500 mt-3">▲「共有」を押すとこの画面。下の<span class="font-bold text-sand-700">「ダウンロード」</span>へ</figcaption>
           </figure>
         </div>
@@ -455,6 +524,12 @@
     <p class="text-[11px] text-sand-400 mt-1">分布図診断 使い方ガイド（手動編集版）</p>
   </footer>
 
+  <!-- ===== 画像拡大表示（ライトボックス） ===== -->
+  <div id="lightbox">
+    <button type="button" id="lightboxClose" aria-label="閉じる">×</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
   <script>
     function copyPrompt(btn) {
       var text = document.getElementById('prompt-text').innerText;
@@ -467,6 +542,27 @@
         alert('コピーできませんでした。長押し or 範囲選択でコピーしてください。');
       });
     }
+
+    // 画像タップで拡大表示
+    (function () {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightboxImg');
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('active');
+      }
+      function closeLightbox() {
+        lb.classList.remove('active');
+        lbImg.src = '';
+      }
+      document.querySelectorAll('img.zoomable').forEach(function (img) {
+        img.addEventListener('click', function () { openLightbox(img.src, img.alt); });
+      });
+      lb.addEventListener('click', closeLightbox);
+      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+    })();
 
     (function () {
       var c = document.getElementById('bgCarousel');
