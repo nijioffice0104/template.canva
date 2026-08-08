@@ -1,7 +1,7 @@
 棒グラフランキング 解説サイト - 素材の差し込みガイド
 ====================================================
 2026-08-08、新規作成。手動編集ガイド一式のデザイン規約（teal基調、CANVA GUIDE（手動編集版）表記）
-に最初から準拠して作成済み。パスワードは未設定（完成後に決める。ゲート自体まだ組み込んでいない）。
+に最初から準拠して作成済み。パスワード: graph26（2026-08-08設定、SHA-256ゲート方式）。
 
 ■ 参考にした既存サイト
 https://friendly-squirrel-90bb3e.netlify.app/lesson-graph/     （上グラフ版、自動入力版）
@@ -61,7 +61,7 @@ start-editing-transaction, position_element, commit-editing-transaction等のツ
   表記だった（本人独自のカスタム例の可能性が高く、テンプレの必須仕様ではなさそう。念のため記録）。
 - 背景変更・ダウンロードはいつも通りlesson-tarotの画像（bg_set.png, bg_delete_old.png,
   step7_share.png, step7_download.png）を使い回している。
-- パスワードは未設定（完成後に本人と相談して決める）。
+- パスワード設定済み: graph26。
 - hubのindex.htmlにカード（📊アイコン）を追加済み。
 
 ■ 今すぐ確認する方法
